@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN"> <!-- 设置网页语言为中文 -->
+<head>
+  <meta charset="UTF-8"> <!-- 设置字符编码为 UTF-8，支持中文 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 响应式设计，适配手机屏幕 -->
+  <title>JHR的网页</title> <!-- 网页标题 -->
+
+  <!-- JavaScript：点击文章标题后显示对应内容 -->
+  <script>
+    function showArticle(id) {
+      // 获取所有 class 为 "page" 的元素（包括首页和文章页）
+      const pages = document.querySelectorAll('.page');
+
+      // 把所有页面都隐藏
+      pages.forEach(function(page) {
+        page.style.display = 'none';
+      });
+
+      // 显示你点击的那个页面（通过 id 找到）
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+
+  <!-- CSS 样式：美化网页 -->
+  <style>
+    body { /* 整个网页背景 */
+     background-image: url("img/5d4caa2127d30f392bbda8f8e6851ed6.jpg"); /* 背景图 */
+      background-size: cover; /* 背景图铺满整个页面 */
+    }
+
+    article img { /* 所有图像设置 */
+      width: 95%; /* 图片宽度占盒子的 95% */
+      max-width: 600px; /* 最大宽度不超过 600px */
+      height: auto; /* 自动保持比例 */
+      display: block;
+      margin: 10px auto;
+      border-radius: 8px; /* 圆角 */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* 阴影效果 */
+      transition: transform 0.3s ease; /* 鼠标悬停时的动画 */
+    }
+
+    article img:hover {
+      transform: scale(1.05); /* 鼠标悬停时放大一点点 */
+    }
+
+    .biaoti { /* 所有标题设置样式 */
+      font-size: 20px; /* 标题字体大小 */
+      text-align: center; /* 居中显示 */
+      color: #333; /* 字体颜色 */
+      margin-bottom: 10px; /* 与下面段落拉开距离 */
+    }
+
+    p { /* p标签内容样式 */
+      line-height: 1.8; /* 行距 */
+      margin: 10px 0; /* 段落上下间距 */
+      font-size: 15px; /* 字体大小 */
+      text-indent: 2em; /* 首行缩进两个字符 */
+    }
+    #home { /* 文章列表盒子 */
+      width: 10%; /* 宽度占页面的 10% */
+      padding: 20px;
+      margin: auto; /* 上下外边距为 30px，左右自动居中 */
+      background: rgba(255, 255, 255, 0.25); /* 半透明背景 */
+      flex-direction: row-reverse; /*  */
+    }
+
+  ::selection {
+    color: white;              /* 选中文字的颜色 */
+    background-color: #007BFF; /* 选中文字的背景色 */
+  }
+
+article { /* 文章盒子 */
+  width: 75%; /* 设置内容区域宽度为页面宽度的 75%，让内容居中且不占满整个屏幕 */
+  margin: 30px auto; /* 上下外边距为 30px，左右自动居中 */
+  padding: 20px; /* 内容区域内边距为 20px，避免文字贴边 */
+  background: rgba(255, 255, 255, 0.25); /* 设置半透明白色背景，实现毛玻璃效果的底色 */
+  border-radius: 8px; /* 设置圆角为 8px，使盒子边缘更柔和 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* 添加阴影效果，增强立体感和层次感 */
+  backdrop-filter: blur(10px); /* 应用背景模糊效果，制造毛玻璃视觉效果 */
+  -webkit-backdrop-filter: blur(10px); /* Safari 浏览器的兼容写法 */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* 添加半透明白色边框，增强毛玻璃质感 */
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- 首页列表 -->
+  <div id="home" class="page">
+    <h1>文章列表</h1>
+    <!-- 点击这些按钮会调用 showArticle 函数，显示对应文章 -->
+    <div class="article-box" onclick="showArticle('goto1')">文章一</div>
+    <div class="article-box" onclick="showArticle('goto2')">文章二</div>
+  </div>
+
+  <!-- 文章一内容 -->
+  <div id="goto1" class="page" style="display: none;"> <!-- 默认隐藏 -->
+    <article id="txt1">
+      <h1 class="biaoti">唉，职校，屮，狗屎军训，我好烦，我到底能不能学好考入本科</h1>
+      <p>25/8/17，现在已经是在职校待的第3天了，环境，同学，都很差劲，还有那个SB姓liu的教官，弄军训的，明明没。。。。8/18：17号没写完，不写了</p>
+    </article>
+  </div>
+
+  <!-- 文章二内容 -->
+  <div id="goto2" class="page" style="display: none;"> <!-- 默认隐藏 -->
+    <article>
+      <h1 class="biaoti">今天在职校烦死了，上午挨罚</h1>
+      <p>25/8/18</p>
+      <p>今天上午挨罚了，真是烦死了，教官姓liu的，真是个SB，真想打他一顿</p>
+      <p>第二段了？我如何体现出来？打空格？</p>
+      <p>网页效果</p>
+      <img src="img/1.png"> <!-- 插入图片 -->
+    </article>
+  </div>
+
+</body>
+</html>

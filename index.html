@@ -1,118 +1,323 @@
-<!DOCTYPE html>
-<html lang="zh-CN"> <!-- 设置网页语言为中文 -->
+<!DOCTYPE html> <!-- 声明这是一个 HTML5 文档 -->
+<html lang="zh-CN"> <!-- 设置页面语言为中文 -->
 <head>
-  <meta charset="UTF-8"> <!-- 设置字符编码为 UTF-8，支持中文 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 响应式设计，适配手机屏幕 -->
-  <title>JHR的网页</title> <!-- 网页标题 -->
+  <meta charset="UTF-8" /> <!-- 设置字符编码为 UTF-8，支持中文 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 移动端适配 -->
+  <title>JHR的小站 - 天依风</title> <!-- 浏览器标签页标题 -->
 
-  <!-- JavaScript：点击文章标题后显示对应内容 -->
-  <script>
-    function showArticle(id) {
-      // 获取所有 class 为 "page" 的元素（包括首页和文章页）
-      const pages = document.querySelectorAll('.page');
+  <!-- 引入 Font Awesome 图标库，用于显示图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-      // 把所有页面都隐藏
-      pages.forEach(function(page) {
-        page.style.display = 'none';
-      });
-
-      // 显示你点击的那个页面（通过 id 找到）
-      document.getElementById(id).style.display = 'block';
-    }
-  </script>
-
-  <!-- CSS 样式：美化网页 -->
   <style>
-    body { /* 整个网页背景 */
-     background-image: url("img/5d4caa2127d30f392bbda8f8e6851ed6.jpg"); /* 背景图 */
-      background-size: cover; /* 背景图铺满整个页面 */
+    /* 定义 CSS 变量，便于统一管理颜色和阴影 */
+    :root {
+      --tianyi-blue: #7ecfff;
+      --tianyi-white: #ffffff;
+      --tianyi-gray: #e0f7ff;
+      --tianyi-shadow: rgba(126, 207, 255, 0.3);
     }
 
-    article img { /* 所有图像设置 */
-      width: 95%; /* 图片宽度占盒子的 95% */
-      max-width: 600px; /* 最大宽度不超过 600px */
-      height: auto; /* 自动保持比例 */
-      display: block;
-      margin: 10px auto;
-      border-radius: 8px; /* 圆角 */
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* 阴影效果 */
-      transition: transform 0.3s ease; /* 鼠标悬停时的动画 */
+    /* 设置页面基础样式 */
+    html, body {
+      height: 100%; /* 页面高度撑满整个视口 */
+      margin: 0; /* 去除默认外边距 */
+      font-family: "思源黑体", sans-serif; /* 设置字体 */
+      background: linear-gradient(to bottom right, var(--tianyi-gray), var(--tianyi-white)); /* 渐变背景 */
+      color: #333; /* 默认文字颜色 */
     }
 
-    article img:hover {
-      transform: scale(1.05); /* 鼠标悬停时放大一点点 */
+    /* 页面主容器，用于撑满整个页面并吸底页脚 */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    .biaoti { /* 所有标题设置样式 */
-      font-size: 20px; /* 标题字体大小 */
-      text-align: center; /* 居中显示 */
-      color: #333; /* 字体颜色 */
-      margin-bottom: 10px; /* 与下面段落拉开距离 */
-    }
-
-    p { /* p标签内容样式 */
-      line-height: 1.8; /* 行距 */
-      margin: 10px 0; /* 段落上下间距 */
-      font-size: 15px; /* 字体大小 */
-      text-indent: 2em; /* 首行缩进两个字符 */
-    }
-    #home { /* 文章列表盒子 */
-      width: 10%; /* 宽度占页面的 10% */
-      padding: 20px;
-      margin: auto; /* 上下外边距为 30px，左右自动居中 */
-      background: rgba(255, 255, 255, 0.25); /* 半透明背景 */
-      flex-direction: row-reverse; /*  */
-    }
-
-  ::selection {
-    color: white;              /* 选中文字的颜色 */
-    background-color: #007BFF; /* 选中文字的背景色 */
-  }
-
-article { /* 文章盒子 */
-  width: 75%; /* 设置内容区域宽度为页面宽度的 75%，让内容居中且不占满整个屏幕 */
-  margin: 30px auto; /* 上下外边距为 30px，左右自动居中 */
-  padding: 20px; /* 内容区域内边距为 20px，避免文字贴边 */
-  background: rgba(255, 255, 255, 0.25); /* 设置半透明白色背景，实现毛玻璃效果的底色 */
-  border-radius: 8px; /* 设置圆角为 8px，使盒子边缘更柔和 */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* 添加阴影效果，增强立体感和层次感 */
-  backdrop-filter: blur(10px); /* 应用背景模糊效果，制造毛玻璃视觉效果 */
-  -webkit-backdrop-filter: blur(10px); /* Safari 浏览器的兼容写法 */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* 添加半透明白色边框，增强毛玻璃质感 */
+    /* 顶部导航栏样式 */
+.home {
+  display: flex; /* 使用 Flex 布局，让子元素横向排列（从左到右） */
+  align-items: flex-start; /* 子元素在垂直方向上靠顶部对齐（默认是居中） */
+  color: white; /* 设置文字颜色为白色 */
+  background-image: url("/img/henfu.png"); /* 设置背景图为 henfu.png */
+  background-position: top center; /* 背景图顶部对齐，水平居中 */
+  background-size: cover; /* 背景图自动缩放，覆盖整个导航栏区域 */
+  background-repeat: no-repeat; /* 背景图不重复铺满 */
+  padding: 10px 20px; /* 内边距：上下 10px，左右 20px，给内容留空间 */
+  height: 130px; /* 设置导航栏高度为 130px */
+  width: 100%; /* 宽度占满整个页面 */
+  gap: 5px; /* 子元素之间的水平间距为 40px */
 }
+
+
+    .nav-item {
+      cursor: pointer; /* 鼠标悬停变成手型 */
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s; /* 悬停时背景渐变 */
+    }
+
+    .nav-item:hover {
+      background-color: rgba(255,255,255,0.2); /* 悬停时背景变亮 */
+    }
+
+    .nav-right {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      margin-left: auto; /* 推到最右边 */
+      margin-right: 50px;
+    }
+
+    /* 主体内容区域 */
+    .content {
+      flex: 1; /* 自动撑满剩余空间 */
+      padding: 20px;
+    }
+
+    .main {
+      display: flex; /* 左右分栏 */
+      gap: 20px;
+    }
+
+    .left {
+      flex: 1; /* 左侧内容占满剩余空间 */
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .right {
+      width: 250px;
+      background-color: rgba(255,255,255,0.6); /* 半透明白色背景 */
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px var(--tianyi-shadow); /* 蓝色阴影 */
+    }
+
+    /* 通用模块样式 */
+    .section {
+      background-color: rgba(255,255,255,0.8);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px var(--tianyi-shadow);
+    }
+
+    .section h2 {
+      color: var(--tianyi-blue); /* 模块标题颜色 */
+      margin-bottom: 12px;
+    }
+
+    .article-section p {
+      line-height: 1.8; /* 段落行距 */
+    }
+
+    .message-section textarea {
+      width: 100%;
+      height: 100px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      resize: none; /* 禁止拖动大小 */
+      font-size: 14px;
+    }
+
+    .message-section button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: var(--tianyi-blue);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .gallery-section .images {
+      display: grid; /* 网格布局 */
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 自动适配列数 */
+      gap: 12px;
+    }
+
+    .gallery-section img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 8px var(--tianyi-shadow);
+      transition: transform 0.3s;
+    }
+
+    .gallery-section img:hover {
+      transform: scale(1.05); /* 悬停放大效果 */
+    }
+
+    /* 页脚样式 */
+    .footer {
+      clear: both;
+      width: 100%;
+      height: 60px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      text-align: center;
+      line-height: 60px;
+      font-size: 14px;
+    }
+    a:hover {
+      background-color: #66ccf9;
+      color: white;
+   }
 
   </style>
 </head>
+<script>
+function filter(category) {
+  const items = document.querySelectorAll('#article-list li');
+  items.forEach(item => {
+    item.style.display =
+      category === 'all' || item.dataset.category === category
+        ? 'list-item'
+        : 'none';
+  });
+}
+
+</script>
 
 <body>
+  <div class="wrapper">
+    <!-- 顶部导航栏 -->
+    <div class="home">
+      <div class="nav-item"><i class="fas fa-home"></i> 首页</div> <!-- 首页图标 -->
+      <div class="nav-item"><i class="fas fa-user"></i> 关于我</div> <!-- 关于我图标 -->
+      <div class="nav-item"><i class="fas fa-book"></i> 文章</div> <!-- 文章图标 -->
+      <div class="nav-item"><i class="fas fa-envelope"></i> 联系</div> <!-- 联系图标 -->
+      <div class="nav-right">jhr的小站</div> <!-- 站点名称 -->
+    </div>
 
-  <!-- 首页列表 -->
-  <div id="home" class="page">
-    <h1>文章列表</h1>
-    <!-- 点击这些按钮会调用 showArticle 函数，显示对应文章 -->
-    <div class="article-box" onclick="showArticle('goto1')">文章一</div>
-    <div class="article-box" onclick="showArticle('goto2')">文章二</div>
+    <!-- 主体内容区域 -->
+    <div class="content">
+      <div class="main">
+        <div class="left">
+          <!-- 🌸 关于我模块 -->
+          <div class="section about-section">
+            <h2>🌸 关于我</h2>
+            <img src="/img/avatar.jpg" alt="我的头像" style="width:120px; border-radius:50%; box-shadow:0 0 8px var(--tianyi-shadow); margin-bottom:10px;">
+            <p style="font-style:italic; color:#666;">“愿我的代码像天依的歌声一样动人。”</p>
+            <ul style="list-style:none; padding:0;">
+              <li>💻 HTML / CSS / JavaScript</li>
+              <li>🎨 UI 设计 / 响应式布局</li>
+              <li>🧠 前端架构思维 / 动效实现</li>
+            </ul>
+          </div>
+
+          <!-- 📚 文章列表模块 -->
+          <div class="section list-section">
+            <h2>📚 文章列表</h2>
+            <div style="margin-bottom:10px;">
+              <!-- border-radius: 圆角半径，padding:定义了元素内容与边框之间的距离，margin-right 属性用于设置元素右侧的外边距 -->
+              <span onclick="filter('前端')" style="background-color:#d0f0ff; padding:4px 8px; border-radius:6px; margin-right:6px;">前端</span>
+              <span onclick="filter('python')"style="background-color:#ffe0f0; padding:4px 8px; border-radius:6px; margin-right:6px;">python</span>
+              <span onclick="filter('c++')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">c++</span>
+              <span onclick="filter('数电')"style="background-color:#1fa0d391;padding:4px 8px; border-radius:6px; margin-right:6px;">数电</span>
+              <span onclick="filter('其它')"style="background-color:#e0f7ff; padding:4px 8px; border-radius:6px; margin-right:6px;">其它</span>
+              <span onclick="filter('生活')"style="background-color:#b3e5fc; padding:4px 8px; border-radius:6px; margin-right:6px;">生活</span>
+              <span onclick="filter('其它')"style="background-color:#e0ffe0; padding:4px 8px; border-radius:6px;">其它</span>
+              <span onclick="filter('心里话')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">心里话</span>
+              <span onclick="filter('all')">全部</span>
+            </div>
+         <ul id="article-list" style="padding-left:20px;">
+              <li data-category="前端"><a href="/articles/article1.html">📄 Flex 布局</a></li>
+              <li data-category="Python"><a href="article2.html">📄 Python 入门</a></li>
+              <li data-category="生活"><a href="article3.html">📄 八月随笔</a></li>
+              <li data-category="数电"><a href="/articles/wenzhang2.html"> 📖 文章标题数电测试</a></li>
+          </ul>
+          </div>
+
+          <!-- 🎵 音乐播放器模块 -->
+          <div class="section music-section">
+            <h2>🎵 天依语音欢迎 + 背景音乐</h2>
+            <audio controls autoplay loop style="width:100%; margin-top:10px;">
+              <source src="tianyi-welcome.mp3" type="audio/mpeg">
+              您的浏览器不支持音频播放。
+            </audio>
+                   <p style="margin-top:10px;">欢迎来到我的小站，播放的是洛天依的欢迎语和背景音乐。希望你在这里感受到温柔与灵感。</p>
+          </div>
+
+          <!-- 📖 原始文章区 -->
+          <div class="section article-section">
+            <h2>📖 文章：我与前端的邂逅</h2>
+            <p>这是正文内容。你可以在这里写你的技术分享、生活感悟、学习笔记等等。页面风格清爽，适合长时间阅读。</p>
+          </div>
+
+          <!-- 💬 留言板模块 -->
+          <div class="section message-section">
+            <h2>💬 留言板</h2>
+            <textarea placeholder="写点什么吧..."></textarea> <!-- 用户输入留言 -->
+            <button>提交</button> <!-- 提交按钮 -->
+          
+          </div>
+
+          <!-- 🖼️ 图像集模块 -->
+          <div class="section gallery-section">
+            <h2>🖼️ 图像集</h2>
+            <div class="images">
+              <img src="img1.jpg" alt="图像1" /> <!-- 图像展示 -->
+              <img src="img2.jpg" alt="图像2" />
+              <img src="img3.jpg" alt="图像3" />
+              <img src="img4.jpg" alt="图像4" />
+            </div>
+          </div>
+        </div>
+
+<!-- 📌 右侧边栏 -->
+<div class="right">
+  <!-- 作者信息卡片 -->
+  <div style="margin-bottom:20px; padding:12px; background:#e0f7ff; border-radius:8px;">
+    <strong style="font-size:16px;">👤 作者：JHR</strong>
+    <p style="margin:8px 0;">
+      🎥 <a href="https://space.bilibili.com/1266839139" target="_blank" rel="noopener noreferrer"
+         style="color:#1fa0d3; text-decoration:underline;">点击访问我的B站空间</a>
+    </p>
+    <p style="margin:6px 0;">
+      <a href="mailto:JHR_BSOD_MIMZ1@outlook.com"
+         style="display:inline-block; padding:6px 12px; background-color:#7ecfff; color:white; border-radius:6px; text-decoration:none;">
+         📧 联系我邮箱
+      </a>
+    </p>
+    <p style="margin-top:10px; font-size:12px; color:#666;">
+      智商低下，纯废物
+    </p>
   </div>
 
-  <!-- 文章一内容 -->
-  <div id="goto1" class="page" style="display: none;"> <!-- 默认隐藏 -->
-    <article id="txt1">
-      <h1 class="biaoti">唉，职校，屮，狗屎军训，我好烦，我到底能不能学好考入本科</h1>
-      <p>25/8/17，现在已经是在职校待的第3天了，环境，同学，都很差劲，还有那个SB姓liu的教官，弄军训的，明明没。。。。8/18：17号没写完，不写了</p>
-    </article>
+  <!-- 快速导航 -->
+  <div style="margin-bottom:20px;">
+    <h3>📌 快速导航</h3>
+    <ul style="padding-left: 16px;">
+      <li><a href="#">关于我</a></li>
+      <li><a href="#">文章列表</a></li>
+      <li><a href="#">音乐播放器</a></li>
+      <li><a href="#">图像集</a></li>
+      <li><a href="#">留言板</a></li>
+    </ul>
   </div>
 
-  <!-- 文章二内容 -->
-  <div id="goto2" class="page" style="display: none;"> <!-- 默认隐藏 -->
-    <article>
-      <h1 class="biaoti">今天在职校烦死了，上午挨罚</h1>
-      <p>25/8/18</p>
-      <p>今天上午挨罚了，真是烦死了，教官姓liu的，真是个SB，真想打他一顿</p>
-      <p>第二段了？我如何体现出来？打空格？</p>
-      <p>网页效果</p>
-      <img src="img/1.png"> <!-- 插入图片 -->
-    </article>
+  <!-- 最新文章模块 -->
+  <div style="background-color: #ffe0f0; padding:10px; border-radius:8px;">
+    <strong>🆕 最新文章</strong>
+    <ul style="margin-top:10px; font-size:14px;">
+      <li>2025-09-01：新增“天依风文章页”</li>
+      <li>2025-08-28：优化导航栏样式</li>
+    </ul>
+    <div style="margin-top:10px;">
+      <strong>📊 分类统计：</strong><br>
+      前端：0篇<br>
+      Python：0篇<br>
+      生活：0篇
+       </div>
+      </div>
+     </div>
+    <div>
+   </div>
   </div>
 
+    <!-- 页脚区域 -->
+    <div class="footer">© 2025 JHR的小站 | 天依风格呈现</div>
+  </div>
 </body>
 </html>

@@ -1,0 +1,85 @@
+/* 天依风配色变量 */
+:root {
+  --tianyi-blue: #7ecfff;
+  --tianyi-white: #ffffff;
+  --tianyi-gray: #e0f7ff;
+  --tianyi-shadow: rgba(126, 207, 255, 0.3);
+}
+
+/* 页面基础样式 */
+body {
+  margin: 0;
+  font-family: "思源黑体", sans-serif;
+  background: linear-gradient(to bottom right, var(--tianyi-gray), var(--tianyi-white));
+  color: #333;
+}
+
+/* 页面容器 */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 导航栏 */
+.home {
+  display: flex;
+  align-items: center;
+  background-color: rgba(51, 51, 51, 0.8);
+  color: white;
+  padding: 10px 20px;
+  height: 80px;
+  gap: 20px;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-item a:hover {
+  text-decoration: underline;
+}
+
+.nav-right {
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* 内容区域 */
+.content {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+/* 文章卡片 */
+.section.article-section {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px var(--tianyi-shadow);
+  max-width: 800px;
+  margin: auto;
+}
+
+.section.article-section h1 {
+  color: var(--tianyi-blue);
+  margin-bottom: 10px;
+}
+
+.meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* 页脚 */
+.footer {
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  font-size: 14px;
+}
