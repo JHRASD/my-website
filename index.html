@@ -34,22 +34,22 @@
     }
 
     /* 顶部导航栏样式 */
-.home {
-  display: flex; /* 使用 Flex 布局，让子元素横向排列（从左到右） */
-  align-items: flex-start; /* 子元素在垂直方向上靠顶部对齐（默认是居中） */
-  color: white; /* 设置文字颜色为白色 */
-  background-image: url("/img/henfu.png"); /* 设置背景图为 henfu.png */
-  background-position: top center; /* 背景图顶部对齐，水平居中 */
-  background-size: cover; /* 背景图自动缩放，覆盖整个导航栏区域 */
-  background-repeat: no-repeat; /* 背景图不重复铺满 */
-  padding: 10px 20px; /* 内边距：上下 10px，左右 20px，给内容留空间 */
-  height: 130px; /* 设置导航栏高度为 130px */
-  width: 100%; /* 宽度占满整个页面 */
-  gap: 5px; /* 子元素之间的水平间距为 40px */
-}
-
+    .home {
+      display: flex; /* 使用 Flex 布局，让子元素横向排列（从左到右） */
+      align-items: flex-start; /* 子元素在垂直方向上靠顶部对齐（默认是居中） */
+      color: white; /* 设置文字颜色为白色 */
+      background-image: url("/img/henfu.png"); /* 设置背景图为 henfu.png */
+      background-position: top center; /* 背景图顶部对齐，水平居中 */
+      background-size: cover; /* 背景图自动缩放，覆盖整个导航栏区域 */
+      background-repeat: no-repeat; /* 背景图不重复铺满 */
+      padding: 10px 20px; /* 内边距：上下 10px，左右 20px，给内容留空间 */
+      height: 130px; /* 设置导航栏高度为 130px */
+      width: 100%; /* 宽度占满整个页面 */
+      gap: 5px; /* 子元素之间的水平间距 */
+    }
 
     .nav-item {
+      color: var(--tianyi-white);
       cursor: pointer; /* 鼠标悬停变成手型 */
       padding: 8px 12px;
       border-radius: 8px;
@@ -87,6 +87,8 @@
     }
 
     .right {
+      display: flex; /* 开启 Flex 布局 */
+      flex-direction: column;   /* 设置竖排 */
       width: 250px;
       background-color: rgba(255,255,255,0.6); /* 半透明白色背景 */
       padding: 20px;
@@ -159,13 +161,16 @@
       line-height: 60px;
       font-size: 14px;
     }
+    a {
+      color: #1fa0d3;
+    }
     a:hover {
       background-color: #66ccf9;
       color: white;
-   }
-
+    }
   </style>
 </head>
+
 <script>
 function filter(category) {
   const items = document.querySelectorAll('#article-list li');
@@ -176,23 +181,23 @@ function filter(category) {
         : 'none';
   });
 }
-
 </script>
 
 <body>
   <div class="wrapper">
     <!-- 顶部导航栏 -->
     <div class="home">
-      <div class="nav-item"><i class="fas fa-home"></i> 首页</div> <!-- 首页图标 -->
-      <div class="nav-item"><i class="fas fa-user"></i> 关于我</div> <!-- 关于我图标 -->
-      <div class="nav-item"><i class="fas fa-book"></i> 文章</div> <!-- 文章图标 -->
-      <div class="nav-item"><i class="fas fa-envelope"></i> 联系</div> <!-- 联系图标 -->
+      <div class="nav-item"><i class="fas fa-home"></i><a href="../index.html">首页</a> </div> <!-- 首页图标 -->
+      <div class="nav-item"><i class="fas fa-user"></i> <a href="/articles/my.html">关于我</a></div> <!-- 关于我图标 -->
+      <div class="nav-item"><i class="fas fa-book"></i> <a href="/articles/wenzhangmulu.html">文章</a></div> <!-- 文章图标 -->
+      <div class="nav-item"><i class="fas fa-envelope"></i><a href="/articles/sayhi.html">联系</a></div> <!-- 联系图标 -->
       <div class="nav-right">jhr的小站</div> <!-- 站点名称 -->
     </div>
 
     <!-- 主体内容区域 -->
     <div class="content">
       <div class="main">
+        <!-- 🌸 左侧内容 -->
         <div class="left">
           <!-- 🌸 关于我模块 -->
           <div class="section about-section">
@@ -200,9 +205,7 @@ function filter(category) {
             <img src="/img/avatar.jpg" alt="我的头像" style="width:120px; border-radius:50%; box-shadow:0 0 8px var(--tianyi-shadow); margin-bottom:10px;">
             <p style="font-style:italic; color:#666;">“愿我的代码像天依的歌声一样动人。”</p>
             <ul style="list-style:none; padding:0;">
-              <li>💻 HTML / CSS / JavaScript</li>
-              <li>🎨 UI 设计 / 响应式布局</li>
-              <li>🧠 前端架构思维 / 动效实现</li>
+              <li>💻 HTML / CSS / JavaScript(✔️懂一点)</li>
             </ul>
           </div>
 
@@ -210,7 +213,8 @@ function filter(category) {
           <div class="section list-section">
             <h2>📚 文章列表</h2>
             <div style="margin-bottom:10px;">
-              <!-- border-radius: 圆角半径，padding:定义了元素内容与边框之间的距离，margin-right 属性用于设置元素右侧的外边距 -->
+              <!-- 文章分类筛选按钮 -->
+              <span onclick="filter('all')">全部</span>
               <span onclick="filter('前端')" style="background-color:#d0f0ff; padding:4px 8px; border-radius:6px; margin-right:6px;">前端</span>
               <span onclick="filter('python')"style="background-color:#ffe0f0; padding:4px 8px; border-radius:6px; margin-right:6px;">python</span>
               <span onclick="filter('c++')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">c++</span>
@@ -219,29 +223,28 @@ function filter(category) {
               <span onclick="filter('生活')"style="background-color:#b3e5fc; padding:4px 8px; border-radius:6px; margin-right:6px;">生活</span>
               <span onclick="filter('其它')"style="background-color:#e0ffe0; padding:4px 8px; border-radius:6px;">其它</span>
               <span onclick="filter('心里话')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">心里话</span>
-              <span onclick="filter('all')">全部</span>
             </div>
-         <ul id="article-list" style="padding-left:20px;">
+            <ul id="article-list" style="padding-left:20px;">
               <li data-category="前端"><a href="/articles/article1.html">📄 Flex 布局</a></li>
               <li data-category="Python"><a href="article2.html">📄 Python 入门</a></li>
               <li data-category="生活"><a href="article3.html">📄 八月随笔</a></li>
               <li data-category="数电"><a href="/articles/wenzhang2.html"> 📖 文章标题数电测试</a></li>
-          </ul>
+            </ul>
           </div>
 
           <!-- 🎵 音乐播放器模块 -->
           <div class="section music-section">
-            <h2>🎵 天依语音欢迎 + 背景音乐</h2>
+            <h2>🎵 背景音乐</h2>
             <audio controls autoplay loop style="width:100%; margin-top:10px;">
               <source src="tianyi-welcome.mp3" type="audio/mpeg">
               您的浏览器不支持音频播放。
             </audio>
-                   <p style="margin-top:10px;">欢迎来到我的小站，播放的是洛天依的欢迎语和背景音乐。希望你在这里感受到温柔与灵感。</p>
+            <p style="margin-top:10px;">欢迎来到我的小站，播放的是洛天依的欢迎语和背景音乐。希望你在这里感受到温柔与灵感。</p>
           </div>
 
           <!-- 📖 原始文章区 -->
           <div class="section article-section">
-            <h2>📖 文章：我与前端的邂逅</h2>
+            <h2>📖 文章：</h2>
             <p>这是正文内容。你可以在这里写你的技术分享、生活感悟、学习笔记等等。页面风格清爽，适合长时间阅读。</p>
           </div>
 
@@ -250,7 +253,6 @@ function filter(category) {
             <h2>💬 留言板</h2>
             <textarea placeholder="写点什么吧..."></textarea> <!-- 用户输入留言 -->
             <button>提交</button> <!-- 提交按钮 -->
-          
           </div>
 
           <!-- 🖼️ 图像集模块 -->
@@ -265,56 +267,63 @@ function filter(category) {
           </div>
         </div>
 
-<!-- 📌 右侧边栏 -->
-<div class="right">
-  <!-- 作者信息卡片 -->
-  <div style="margin-bottom:20px; padding:12px; background:#e0f7ff; border-radius:8px;">
-    <strong style="font-size:16px;">👤 作者：JHR</strong>
-    <p style="margin:8px 0;">
-      🎥 <a href="https://space.bilibili.com/1266839139" target="_blank" rel="noopener noreferrer"
-         style="color:#1fa0d3; text-decoration:underline;">点击访问我的B站空间</a>
-    </p>
-    <p style="margin:6px 0;">
-      <a href="mailto:JHR_BSOD_MIMZ1@outlook.com"
-         style="display:inline-block; padding:6px 12px; background-color:#7ecfff; color:white; border-radius:6px; text-decoration:none;">
-         📧 联系我邮箱
-      </a>
-    </p>
-    <p style="margin-top:10px; font-size:12px; color:#666;">
-      智商低下，纯废物
-    </p>
-  </div>
+        <!-- 📌 右侧边栏 -->
+        <div class="right">
+          <!-- 作者信息卡片 -->
+          <div style="margin-bottom:20px; padding:12px; background:#e0f7ff; border-radius:8px;">
+            <strong style="font-size:16px;">👤 作者：JHR</strong>
+            <p style="margin:8px 0;">
+              🎥 <a href="https://space.bilibili.com/1266839139" target="_blank" rel="noopener noreferrer"
+                 style="color:#1fa0d3; text-decoration:underline;">点击访问我的B站空间</a>
+            </p>
+            <p style="margin:6px 0;">
+              <a href="mailto:JHR_BSOD_MIMZ1@outlook.com"
+                 style="display:inline-block; padding:6px 12px; background-color:#7ecfff; color:white; border-radius:6px; text-decoration:none;">
+                 📧 联系我邮箱
+              </a>
+            </p>
+            <p style="margin-top:10px; font-size:12px; color:#666;">
+              智商低下，纯废物
+            </p>
+          </div>
 
-  <!-- 快速导航 -->
-  <div style="margin-bottom:20px;">
-    <h3>📌 快速导航</h3>
-    <ul style="padding-left: 16px;">
-      <li><a href="#">关于我</a></li>
-      <li><a href="#">文章列表</a></li>
-      <li><a href="#">音乐播放器</a></li>
-      <li><a href="#">图像集</a></li>
-      <li><a href="#">留言板</a></li>
-    </ul>
-  </div>
+          <!-- 快速导航 -->
+          <div style="margin-bottom:20px;">
+            <h3>📌 快速导航</h3>
+            <ul style="padding-left: 16px;">
+              <li><a href="#">关于我</a></li>
+              <li><a href="#">文章列表</a></li>
+              <li><a href="#">音乐播放器</a></li>
+              <li><a href="#">图像集</a></li>
+              <li><a href="#">留言板</a></li>
+            </ul>
+          </div>
 
-  <!-- 最新文章模块 -->
-  <div style="background-color: #ffe0f0; padding:10px; border-radius:8px;">
-    <strong>🆕 最新文章</strong>
-    <ul style="margin-top:10px; font-size:14px;">
-      <li>2025-09-01：新增“天依风文章页”</li>
-      <li>2025-08-28：优化导航栏样式</li>
-    </ul>
-    <div style="margin-top:10px;">
-      <strong>📊 分类统计：</strong><br>
-      前端：0篇<br>
-      Python：0篇<br>
-      生活：0篇
-       </div>
+          <!-- 最新文章模块 -->
+          <div style="background-color: #ffe0f0; padding:10px; border-radius:8px; width: 230px;">
+            <strong>🆕 最新文章</strong>
+            <ul style="margin-top:10px; font-size:14px;">
+              <li>2025-09-01：新增“天依风文章页”</li>
+              <li>2025-08-28：优化导航栏样式</li>
+            </ul>
+            <div style="margin-top:10px;">
+              <strong>📊 分类统计：</strong><br>
+              前端：0篇<br>
+              Python：0篇<br>
+              生活：0篇
+            </div>
+          </div>
+
+          <!-- 📢 告示栏模块（独立） -->
+          <div style="background-color: #fff8e1; padding: 12px; border-radius: 8px; margin-top: 20px; box-shadow: 0 0 8px var(--tianyi-shadow); width: 230px;">
+            <strong style="color: #ff9800;">📢 告示栏</strong>
+            <p style="margin-top: 8px; font-size: 14px; color: #555;">
+              目前因为开学，所以没时间完善，估计也不会有人看吧。本人没考上高中，是一个傻逼，看着xxt，abcd，内心很难受，再也没有话题可以聊了，知识层面差距也很大，虽然小学的时候和他无话不说，但是随着在不同的学校，环境他交到了许多很厉害的朋友，我和他的差距越来越大...这也是必然会发生的吧，我怎么可能配的上做他朋友呢？小学时的友情很真诚，现在的距离也让我很难受，在初中也没有一个讲的来的好友，加上环境，我不太会交流了，也不敢向老师提问，每次一个人呆着（为什么我想写出来呢？是想在别人面前刷存在感？还是指望别人给你安慰，还是想让xxt看到了解我的想法？我这人配吗？）
+            </p>
+          </div>
+        </div>
       </div>
-     </div>
-    <div>
-   </div>
-  </div>
+    </div>
 
     <!-- 页脚区域 -->
     <div class="footer">© 2025 JHR的小站 | 天依风格呈现</div>
