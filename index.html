@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" /> <!-- 设置字符编码为 UTF-8，支持中文 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 移动端适配 -->
-  <title>JHR的小站 - 天依风</title> <!-- 浏览器标签页标题 -->
+  <title>JHR的小站 </title> <!-- 浏览器标签页标题 -->
 
   <!-- 引入 Font Awesome 图标库，用于显示图标 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="icon" type="image/png" href="/img/favicon.png">
 
   <style>
     /* 定义 CSS 变量，便于统一管理颜色和阴影 */
@@ -55,6 +56,15 @@
       border-radius: 8px;
       transition: background 0.3s; /* 悬停时背景渐变 */
     }
+
+    .fenlei:hover{
+      color: var(--tianyi-white);
+      cursor: pointer; /* 鼠标悬停变成手型 */
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.3s; /* 悬停时背景渐变 */
+     
+   }
 
     .nav-item:hover {
       background-color: rgba(255,255,255,0.2); /* 悬停时背景变亮 */
@@ -214,15 +224,16 @@ function filter(category) {
             <h2>📚 文章列表</h2>
             <div style="margin-bottom:10px;">
               <!-- 文章分类筛选按钮 -->
-              <span onclick="filter('all')">全部</span>
-              <span onclick="filter('前端')" style="background-color:#d0f0ff; padding:4px 8px; border-radius:6px; margin-right:6px;">前端</span>
-              <span onclick="filter('python')"style="background-color:#ffe0f0; padding:4px 8px; border-radius:6px; margin-right:6px;">python</span>
-              <span onclick="filter('c++')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">c++</span>
-              <span onclick="filter('数电')"style="background-color:#1fa0d391;padding:4px 8px; border-radius:6px; margin-right:6px;">数电</span>
-              <span onclick="filter('其它')"style="background-color:#e0f7ff; padding:4px 8px; border-radius:6px; margin-right:6px;">其它</span>
-              <span onclick="filter('生活')"style="background-color:#b3e5fc; padding:4px 8px; border-radius:6px; margin-right:6px;">生活</span>
-              <span onclick="filter('其它')"style="background-color:#e0ffe0; padding:4px 8px; border-radius:6px;">其它</span>
-              <span onclick="filter('心里话')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">心里话</span>
+              <span class="fenlei"onclick="filter('all')" style="background-color: aquamarine; padding:4px 8px;border-radius:6px; margin-right:6px;">全部</span>
+              <span class="fenlei"onclick="filter('前端')" style="background-color:#d0f0ff; padding:4px 8px; border-radius:6px; margin-right:6px;">前端</span>
+              <span class="fenlei"onclick="filter('python')"style="background-color:#ffe0f0; padding:4px 8px; border-radius:6px; margin-right:6px;">python</span>
+              <span class="fenlei"onclick="filter('c++')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">c++</span>
+              <span class="fenlei"onclick="filter('数电')"style="background-color:#1fa0d391;padding:4px 8px; border-radius:6px; margin-right:6px;">数电</span>
+              <span class="fenlei"onclick="filter('其它')"style="background-color:#e0f7ff; padding:4px 8px; border-radius:6px; margin-right:6px;">其它</span>
+              <span class="fenlei"onclick="filter('生活')"style="background-color:#b3e5fc; padding:4px 8px; border-radius:6px; margin-right:6px;">生活</span>
+              <span class="fenlei"onclick="filter('其它')"style="background-color:#e0ffe0; padding:4px 8px; border-radius:6px;">其它</span>
+              <span class="fenlei"onclick="filter('心里话')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">心里话</span>
+              <span class="fenlei"onclick="filter('天依')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">歌词摘录</span>
             </div>
             <ul id="article-list" style="padding-left:20px;">
               <li data-category="前端"><a href="/articles/article1.html">📄 Flex 布局</a></li>
@@ -235,17 +246,18 @@ function filter(category) {
           <!-- 🎵 音乐播放器模块 -->
           <div class="section music-section">
             <h2>🎵 背景音乐</h2>
-            <audio controls autoplay loop style="width:100%; margin-top:10px;">
-              <source src="tianyi-welcome.mp3" type="audio/mpeg">
-              您的浏览器不支持音频播放。
-            </audio>
-            <p style="margin-top:10px;">欢迎来到我的小站，播放的是洛天依的欢迎语和背景音乐。希望你在这里感受到温柔与灵感。</p>
+          <audio controls loop style="width:100%; margin-top:10px;">
+          <source src="/video/万分之一的光.mp3" type="audio/mpeg">
+                   您的浏览器不支持音频播放。
+         </audio>
+
+            <p style="margin-top:10px;">欢迎来到我的小站，播放的是背景音乐。希望你在这里感受到温柔与灵感。</p>
           </div>
 
           <!-- 📖 原始文章区 -->
           <div class="section article-section">
             <h2>📖 文章：</h2>
-            <p>这是正文内容。你可以在这里写你的技术分享、生活感悟、学习笔记等等。页面风格清爽，适合长时间阅读。</p>
+            <p>这是正文内容，还没想好写什么</p>
           </div>
 
           <!-- 💬 留言板模块 -->
@@ -318,7 +330,7 @@ function filter(category) {
           <div style="background-color: #fff8e1; padding: 12px; border-radius: 8px; margin-top: 20px; box-shadow: 0 0 8px var(--tianyi-shadow); width: 230px;">
             <strong style="color: #ff9800;">📢 告示栏</strong>
             <p style="margin-top: 8px; font-size: 14px; color: #555;">
-              目前因为开学，所以没时间完善，估计也不会有人看吧。本人没考上高中，是一个傻逼，看着xxt，abcd，内心很难受，再也没有话题可以聊了，知识层面差距也很大，虽然小学的时候和他无话不说，但是随着在不同的学校，环境他交到了许多很厉害的朋友，我和他的差距越来越大...这也是必然会发生的吧，我怎么可能配的上做他朋友呢？小学时的友情很真诚，现在的距离也让我很难受，在初中也没有一个讲的来的好友，加上环境，我不太会交流了，也不敢向老师提问，每次一个人呆着（为什么我想写出来呢？是想在别人面前刷存在感？还是指望别人给你安慰，还是想让xxt看到了解我的想法？我这人配吗？）
+              目前因为开学，所以没时间完善，估计也不会有人看吧。本人没考上高中，是一个傻逼，看着xxt，abcd，内心很难受，再也没有话题可以聊了，知识层面差距也很大，虽然小学的时候和他无话不说，但是随着在不同的学校，环境他交到了许多很厉害的朋友，我和他的差距越来越大...这也是必然会发生的吧，我怎么可能配的上做他朋友呢？小学时的友情很真诚，现在的距离也让我很难受，在初中也没有一个讲的来的好友，加上环境，我不太会交流和表达了，也不敢向老师提问，每次一个人呆着（为什么我想写出来呢？是想在别人面前刷存在感？还是指望别人给你安慰，还是想让xxt看到了解我的想法？我这人配吗？）
             </p>
           </div>
         </div>
@@ -326,7 +338,7 @@ function filter(category) {
     </div>
 
     <!-- 页脚区域 -->
-    <div class="footer">© 2025 JHR的小站 | 天依风格呈现</div>
+    <div class="footer">© 2025 JHR的小站</div>
   </div>
 </body>
 </html>
