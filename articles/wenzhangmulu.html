@@ -3,34 +3,215 @@
 <head>
   <meta charset="UTF-8" />
   <title>文章标题 - JHR的小站</title>
-  <link rel="stylesheet" href="/css/style.css" /> <!-- 引入公共样式 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> <!-- 图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+
+    :root {
+      --tianyi-blue: #66ccff;
+      --tianyi-white: #ffffff;
+      --tianyi-gray: #e0f7ff;
+      --tianyi-shadow: rgba(126, 207, 255, 0.3);
+    }
+
+
+    /* 设置页面基础样式 */
+    html, body {
+      height: 100%; /* 页面高度撑满整个视口 */
+      margin: 0; /* 去除默认外边距 */
+      font-family: "思源黑体", sans-serif; /* 设置字体 */
+      background: linear-gradient(to bottom right, var(--tianyi-gray), var(--tianyi-white)); /* 渐变背景 */
+      color: #333; /* 默认文字颜色 */
+    }
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;         /* 至少撑满整个屏幕 */
+  display: flex;
+  flex-direction: column;    /* 垂直排列：导航栏、正文、页脚 */
+}
+
+   .main-area {
+  flex: 1;
+}
+
+    a {
+      text-decoration: none;
+    }
+
+    /* 顶部导航栏 */
+    .daohanglan {
+      display: flex;
+      flex-direction: row; /* 水平排列 */
+      padding: 10px 20px; /* 内边距 */
+      gap: 5px; /* 元素间距 */
+      height: 70px;
+      background-color: rgba(51, 51, 51, 0.8); /* 半透明背景色 */
+      align-items: center; /* 垂直居中 */
+      font-size: 20px; /* 字体大小 */
+    }
+
+    .nav-right {
+      margin-left: auto; /* 自动左边距将其推到右侧 */
+    }
+
+    /* 主区域 */
+    .main-area {
+      display: flex;
+      gap: 12px; /* 缩小盒子之间的间距 */
+      padding: 20px 12px; /* 左右边距也稍微收紧 */
+    }
+
+    .main-area {
+     display: flex;              /* 横向排列子元素 */
+     justify-content: center;    /* 水平居中整个区域 */
+     align-items: flex-start;    /* 顶部对齐 */
+     gap: 20px;                  /* 正文和侧边栏之间的间距 */
+     padding: 30px 20px;         /* 页面边距 */
+     max-width: 1200px;          /* 限制最大宽度 */
+     margin: 0 auto;             /* 居中整个容器 */
+}
+
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px; /* 圆角 */
+    }
+
+    .meta {
+      color: #888;
+      font-size: 15px;
+    }
+
+.sidebar {
+      display: flex;
+      justify-content: flex-end; /* 整个内容靠右 */
+      gap: 5px; /* 侧边栏内元素间距 */
+    }
+.zhuti{
+      display: flex; /* 开启 Flex 布局 */
+      flex-direction: column;   /* 设置竖排 */
+      width: 250px;
+      background-color: rgba(255,255,255,0.6); /* 半透明白色背景 */
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(126, 207, 255, 0.3); /* 蓝色阴影 */
+}
+.toc{
+  margin-bottom: 15px;
+  /* 盒子居中 */
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  width: 100%;
+  height: 200px;
+  text-align: center;
+}
+
+.music-player{
+  width: 100%;
+  background-color:#f0f0f0;
+}
+.widgets{
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.fotsize{
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.theme-toggle{
+  padding: 10px;  
+  background-color: #f0f0f0;
+}
+
+    /* 页脚 */
+.footer {
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  font-size: 14px;
+}
+
+body.dark {
+  background-color: #1e1e2f;
+  color: #e0e0e0;
+}
+
+.dark .wrapper {
+  background-color: #2a2a3d;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.dark .sidebar {
+  background-color: #333c4d;
+  color: #ddd;
+}
+
+.dark .daohanglan {
+  background-color: rgba(30, 30, 47, 0.9);
+}
+
+.dark a {
+  color: #66ccff;
+}
+
+
+  </style>
 </head>
-<body>
-  <div class="wrapper">
-    <!-- 顶部导航栏 -->
-    <div class="home">
-      <div class="nav-item">
-        <a href="../index.html" style="color:white; text-decoration:none;">
-          <i class="fas fa-home"></i> 返回首页
-        </a>
-      </div>
-      <div class="nav-right">JHR的小站</div>
-    </div>
 
-    <!-- 正文内容区域 -->
-    <div class="content">
-      <div class="section article-section">
-        <h1>📖 文章标题</h1>
-        <p class="meta">🕒 发布日期：2025-09-05 | 📂 分类：数电</p>
-        <hr>
-        <p>这里是文章模板，以后直接复制修改</p>
-        <p>内容</p>
-      </div>
-    </div>
-
-    <!-- 页脚 -->
-    <div class="footer">© 2025 JHR的小站 | 天依风格呈现</div>
+  <!-- 顶部导航栏 -->
+  <div class="daohanglan">
+    <div><a style="color: white;" href="#">首页</a></div>
+    <div><a style="color: white;" href="#">目录</a></div>
+    <div><a style="color: white;" href="#">归档</a></div>
+    <div style="color: white;" class="nav-right">114514</div>
   </div>
+ 
+  <div class="main-area">
+  <!-- 正文内容 -->
+  <div class="wrapper">
+    <h1 style="color: #66ccff;">文章标题</h1>
+    <p class="meta">🕒 发布日期：2025-09-05 | 📂 分类：</p>
+    <br>
+    <p>正文内容</p>
+  </div>
+
+<!-- 侧边栏 -->
+<div class="sidebar">
+  <div class="zhuti">
+  <div class="toc">📑 文章目录</div>
+  <div class="music-player">🎵 音乐播放器</div>
+  <div class="font-size"><button onclick="document.body.style.fontSize='30px'">放大字体</button>
+<button onclick="document.body.style.fontSize='14px'">缩小字体</button></div>
+  <div class="theme-toggle">
+ <button onclick="document.body.classList.toggle('dark')">🌙 夜间模式</button>
+     </div>
+   </div>
+  </div>
+</div>
+  <!-- 页脚 -->
+  <div class="footer">© 2025 JHR的小站</div>
+
 </body>
 </html>

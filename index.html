@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!-- 声明这是一个 HTML5 文档 -->
+﻿<!DOCTYPE html> <!-- 声明这是一个 HTML5 文档 -->
 <html lang="zh-CN"> <!-- 设置页面语言为中文 -->
 <head>
   <meta charset="UTF-8" /> <!-- 设置字符编码为 UTF-8，支持中文 -->
@@ -12,7 +12,7 @@
   <style>
     /* 定义 CSS 变量，便于统一管理颜色和阴影 */
     :root {
-      --tianyi-blue: #7ecfff;
+      --tianyi-blue: #66ccff;
       --tianyi-white: #ffffff;
       --tianyi-gray: #e0f7ff;
       --tianyi-shadow: rgba(126, 207, 255, 0.3);
@@ -26,7 +26,10 @@
       background: linear-gradient(to bottom right, var(--tianyi-gray), var(--tianyi-white)); /* 渐变背景 */
       color: #333; /* 默认文字颜色 */
     }
-
+    /* 去除所有链接的下划线 */
+  .a {
+    text-decoration: none;
+  }
     /* 页面主容器，用于撑满整个页面并吸底页脚 */
     .wrapper {
       display: flex;
@@ -41,6 +44,7 @@
       color: white; /* 设置文字颜色为白色 */
       background-image: url("/img/henfu.png"); /* 设置背景图为 henfu.png */
       background-position: top center; /* 背景图顶部对齐，水平居中 */
+      background-position: center; /* 背景图像居中 */
       background-size: cover; /* 背景图自动缩放，覆盖整个导航栏区域 */
       background-repeat: no-repeat; /* 背景图不重复铺满 */
       padding: 10px 20px; /* 内边距：上下 10px，左右 20px，给内容留空间 */
@@ -213,7 +217,7 @@ function filter(category) {
           <div class="section about-section">
             <h2>🌸 关于我</h2>
             <img src="/img/avatar.jpg" alt="我的头像" style="width:120px; border-radius:50%; box-shadow:0 0 8px var(--tianyi-shadow); margin-bottom:10px;">
-            <p style="font-style:italic; color:#666;">“愿我的代码像天依的歌声一样动人。”</p>
+            <p style="font-style:italic; color:#666;">“嘿嘿，佬，洛佬😍”</p>
             <ul style="list-style:none; padding:0;">
               <li>💻 HTML / CSS / JavaScript(✔️懂一点)</li>
             </ul>
@@ -237,6 +241,7 @@ function filter(category) {
             </div>
             <ul id="article-list" style="padding-left:20px;">
               <li data-category="前端"><a href="/articles/article1.html">📄 Flex 布局</a></li>
+              <li data-category="前端"><a href="/articles/wenzhangmulu.html">📄 文章模板</a></li>
               <li data-category="Python"><a href="article2.html">📄 Python 入门</a></li>
               <li data-category="生活"><a href="article3.html">📄 八月随笔</a></li>
               <li data-category="生活"><a href="/articles/articles-day/生活，职校第一天感受.html">📄职校第一天感受</a></li>
@@ -258,15 +263,25 @@ function filter(category) {
           <!-- 📖 原始文章区 -->
           <div class="section article-section">
             <h2>📖 文章：</h2>
-            <p>这是正文内容，还没想好写什么</p>
+            <p> 文章模板盒子里面不对啊，侧边栏里面的，我实在不想弄了，我也不知道我写网页的目的是什么，为了跟风？别人他们不仅搞网页，还会一堆其它东西，我都不知道我弄这个的意义何在，上次弄这个还是在24年6月，没有学习过前端，但是看群里面都在聊，我也想试试，也就了解到了hexo模板，也玩过一段时间，当然也算可以说浪费了一段时间，后来因为一些原因，一些逆天东西被看到了，也不想弄了，我也学习不到啥。唉我学习能力也是差，也坚持不下来，明明3小时的前端入门，我硬是断断续续花了几周学完。 这个网页也算是我动手写的吧，但是没有ai指导，我写的就是史了，实在是累了</p>
           </div>
 
-          <!-- 💬 留言板模块 -->
-          <div class="section message-section">
-            <h2>💬 留言板</h2>
-            <textarea placeholder="写点什么吧..."></textarea> <!-- 用户输入留言 -->
-            <button>提交</button> <!-- 提交按钮 -->
-          </div>
+    
+     <!-- 💬 留言板模块 -->
+<div class="section message-section">
+  <h2>💬 留言板</h2>
+  <p>欢迎留言交流（需 GitHub 登录）</p>
+  <div id="comments"></div>
+</div> <!-- ← 这个是你漏掉的 -->
+<script src="https://utteranc.es/client.js"
+        repo="JHRASD/comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
 
           <!-- 🖼️ 图像集模块 -->
           <div class="section gallery-section">
@@ -331,7 +346,7 @@ function filter(category) {
           <div style="background-color: #fff8e1; padding: 12px; border-radius: 8px; margin-top: 20px; box-shadow: 0 0 8px var(--tianyi-shadow); width: 230px;">
             <strong style="color: #ff9800;">📢 告示栏</strong>
             <p style="margin-top: 8px; font-size: 14px; color: #555;">
-              目前因为开学，所以没时间完善，估计也不会有人看吧。本人没考上高中，是一个傻逼，看着xxt，abcd，内心很难受，再也没有话题可以聊了，知识层面差距也很大，虽然小学的时候和他无话不说，但是随着在不同的学校，环境他交到了许多很厉害的朋友，我和他的差距越来越大...这也是必然会发生的吧，我怎么可能配的上做他朋友呢？小学时的友情很真诚，但现在的距离也让我很难受，在初中也没有一个讲的来的好友，加上环境，我不太会交流和表达了，也不敢向老师提问，每次一个人呆着（为什么我想写出来呢？是想在别人面前刷存在感？还是指望别人给你安慰，还是想让xxt看到了解我的想法？我这人配吗？）
+              目前因为开学，所以没时间完善，估计也不会有人看吧。本人没考上高中，是一个傻逼，看着xxt，abcd，内心很难受，再也没有话题可以聊了，知识层面差距也很大，虽然小学的时候和他无话不说，但是随着在不同的学校，环境他交到了许多很厉害的朋友，我和他的差距越来越大...这也是必然会发生的吧，我怎么可能配的上做他朋友呢？小学时的友情很真诚，但现在的距离也让我很难受，在初中也没有一个讲的来的好友，加上环境，我不太会交流和表达了，也不敢向老师提问，每次一个人呆着（为什么我想写出来呢？是想在别人面前刷存在感？还是指望别人给你安慰，还是想让xxt看到了解我的想法？我这人配吗？怎么可能有人为我承担坏情绪）
             </p>
           </div>
         </div>

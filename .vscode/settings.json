@@ -16,7 +16,7 @@
   // ✅ 背景图设置（使用 background 插件）
   "background.fullscreen": {
     "useFront": true,
-    "style": {
+    "style": { 
       "background-position": "center",
       "background-size": "cover",
       "opacity": 0.9, // 透明度设置
@@ -38,7 +38,7 @@
       "file:///C:/Users/jhr/Pictures/洛天依/v2-8b76de2b5021122fb6bc4e1e0b539236_1440w.jpg"
     ],
     "interval": 1200,      // 每隔 20 分钟切换（单位为秒）
-    "random": true        // 按顺序轮播老婆图
+    "random": true        // 按顺序轮播图
   },
 
   // ✅ 推荐设置：显示行号、缩进格式等（可选）
