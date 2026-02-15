@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESP32 基础教程1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="style" href="/css/maintext.css"> 
+</head>
+
+<style>
+  @import url('/css/maintext.css');
+</style>
+<body>
+  <div class="wrapper">
+   <!-- 顶部导航栏 -->
+  <div class="hengfu">
+    <a href ="/index.html">首页</a>
+    <a href ="#">目录</a>
+    <a href ="#">归档</a>
+    <p class="nav-right">JHR的小站</p>
+  </div>
+  
+  <!-- 正文内容区域 -->
+   <div class="layout">
+   <div class="maintext">
+    <h1>ESP32 基础教程1</h1>
+    <p class ="meta">🕒 发布日期：2026年2月15日 | 📂 分类：ESP32</p>
+    <hr>
+    <h3> 一· ESP32开发环境搭建</h3>
+    <p>在vscode中配置ESP32开发环境,需要安装PlatformIO插件   <details>
+  <summary>点击查看图片</summary>
+  <img src="/articles/ESP32/img/1.png" style="width:100%; max-width:600px; margin-top:10px;">
+</details></p>
+<p> 安装好后，点击Projects & Configuration,创建一个项目，填入项目名，需要按照实际开发板的型号选择对应的开发板。（这一步会卡很久，因为下载的依赖有点多，是正常现象）</p>
+<details>
+  <summary>点击查看图片</summary>
+  <img src="/articles/ESP32/img/2.png" style="width:100%; max-width:600px; margin-top:10px;">
+</details>
+ <h3>二· 程序的编写</h3>
+<p>在src文件夹下的main.cpp中编写代码，下面是一个简单的点亮LED的程序</p>
+<pre><code></code>#include &lt;Arduino.h&gt;
+
+const int ledPin = 2; // ESP32开发板上的LED引脚
+
+void setup() {
+  pinMode(ledPin, OUTPUT); // 设置LED引脚为输出模式
+}
+
+void loop() {
+  digitalWrite(ledPin, HIGH); // 点亮LED
+  delay(1000);                // 延时1秒
+  digitalWrite(ledPin, LOW);  // 熄灭LED
+  delay(1000);                // 延时1秒
+}</code></pre>
+<p>编写好代码后，点击下方的向上箭头（这一步是编译代码）然后在点击向右的箭头（烧录到开发板），没有报错的话，ESP32开发板上的LED就会开始闪烁了</p>
+<h3>三· 结语</h3>
+<p>以上就是ESP32开发环境的搭建和一个简单程序的编写</p>
+
+
+
+  </div>
+
+<!--侧边栏-->
+<!-- 作者信息 -->
+ <div class="sidebar">
+<div class="Author">
+  <img class="img" src="/img/avatar.jpg" alt="头像"> 
+  <h3 class="name">JHR</h3>
+  <div class="links">
+  <a class="a" href="https://space.bilibili.com/1266839139?spm_id_from=333.1387.0.0">bilibili</a>
+  <a class="a" href="https://github.com/JHRASD">GitHub</a>
+  <a href="mailto:JHR_BSOD_MIMZ1@outlook.com" class="a">邮箱</a>
+  </div>
+</div>
+
+<!-- 文章目录 -->
+<div class="mulu">
+<h2 style="color: #66ccff"> 文章目录</h2>
+<ul>
+  <li><a href="#section1">章节1</a></li> 
+  <li><a href="#section2">章节2</a></li>
+  <li><a href="#section3">章节3</a></li>
+</ul>
+</div>
+
+
+<!-- 小工具 -->   
+<div class="tools">
+  <h3  style="color: #66ccff" >小工具</h3>
+  <button onclick="document.body.style.fontSize='30px'">放大字体</button>
+  <button onclick="document.body.style.fontSize='16px'">恢复默认</button>
+  <button onclick="document.body.classList.toggle('dark')">切换深色模式</button>
+
+</div>
+
+</div>
+</div>
+ 
+
+  <!-- 页脚 -->
+  <div class="footer">    © 2025 JHR的小站   </div>
+</div>
+</body>
+</html>

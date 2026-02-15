@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>程序的基础语法与关键词</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="style" href="/css/maintext.css"> 
+</head>
+
+<style>
+  @import url('/css/maintext.css');
+</style>
+<body>
+  <div class="wrapper">
+   <!-- 顶部导航栏 -->
+  <div class="hengfu">
+    <a href ="/index.html">首页</a>
+    <a href ="#">目录</a>
+    <a href ="#">归档</a>
+    <p class="nav-right">JHR的小站</p>
+  </div>
+  
+  <!-- 正文内容区域 -->
+   <div class="layout">
+   <div class="maintext">
+    <h1>程序的基础语法与关键词</h1>
+    <p class ="meta">🕒 发布日期：2026年2月15日 | 📂 分类：ESP32</p>
+    <hr>
+    <h3> 一· 程序的结构</h3>
+    <p> 一个单片机的程序主体结构，由头文件，setup和loop组成，setup是单片机只执行一次的函数，loop是单片机会一直循环执行的函数</p>
+  <code><pre>
+#include <Arduino.h>
+
+void setup() {
+// 初始化代码（只执行一次）
+}
+
+void loop() {
+// 循环执行的代码（一直重复）
+}
+
+setup()：开机时执行一次
+loop()：不停循环执行（每秒执行很多次）
+
+
+</pre></code>
+
+    <h3>二、GPIO 相关函数</h3>
+    <p>GPIO（针脚）通过写程序的方式控制其输入输出状态，不过也不能随便用。“推荐使用的（以后接 LED、传感器、屏幕都优先用这些）
+:2,4,5,12,13,14,15,18,19,21,22,23,25,26,27,32,33”</p>
+
+<h3>pinMode</h3>
+<p>设置GPIO的输入输出模式</p>
+<ul>  
+<li>pinMode(针脚, 模式) —— 设置针脚模式</li>
+<li>常用模式：</li>
+<li>INPUT：输入电压（读取按键）</li>
+<li>OUTPUT：输出电压（点灯、驱动）</li> 
+<li>INPUT_PULLUP：输入 + 上拉（按键松开时自动变 HIGH）</li>
+</ul>
+<p>示例：</p>
+<code><pre>
+pinMode(2, OUTPUT); // 设置 GPIO 2 为输出模式
+pinMode(4, INPUT);  // 设置 GPIO 4 为输入模式
+pinMode(5, INPUT_PULLUP); // 设置 GPIO 5 为输入模式并启用上拉电阻
+</pre></code>
+
+
+<h3>digitalRead(针脚)读取电平</h3>
+<p></p>
+  </div>
+
+<!--侧边栏-->
+<!-- 作者信息 -->
+ <div class="sidebar">
+<div class="Author">
+  <img class="img" src="/img/avatar.jpg" alt="头像"> 
+  <h3 class="name">JHR</h3>
+  <div class="links">
+  <a class="a" href="https://space.bilibili.com/1266839139?spm_id_from=333.1387.0.0">bilibili</a>
+  <a class="a" href="https://github.com/JHRASD">GitHub</a>
+  <a href="mailto:JHR_BSOD_MIMZ1@outlook.com" class="a">邮箱</a>
+  </div>
+</div>
+
+<!-- 文章目录 -->
+<div class="mulu">
+<h2 style="color: #66ccff"> 文章目录</h2>
+<ul>
+  <li><a href="#section1">章节1</a></li> 
+  <li><a href="#section2">章节2</a></li>
+  <li><a href="#section3">章节3</a></li>
+</ul>
+</div>
+
+
+<!-- 小工具 -->   
+<div class="tools">
+  <h3  style="color: #66ccff" >小工具</h3>
+  <button onclick="document.body.style.fontSize='30px'">放大字体</button>
+  <button onclick="document.body.style.fontSize='16px'">恢复默认</button>
+  <button onclick="document.body.classList.toggle('dark')">切换深色模式</button>
+
+</div>
+
+</div>
+</div>
+ 
+
+  <!-- 页脚 -->
+  <div class="footer">    © 2025 JHR的小站   </div>
+</div>
+</body>
+</html>

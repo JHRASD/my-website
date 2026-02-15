@@ -205,7 +205,7 @@ function filter(category) {
       <div class="nav-item"><i class="fas fa-user"></i> <a href="/articles/my.html">关于我</a></div> <!-- 关于我图标 -->
       <div class="nav-item"><i class="fas fa-book"></i> <a href="/articles/wenzhangmulu.html">文章</a></div> <!-- 文章图标 -->
       <div class="nav-item"><i class="fas fa-envelope"></i><a href="/articles/sayhi.html">联系</a></div> <!-- 联系图标 -->
-      <div class="nav-right">jhr的小站</div> <!-- 站点名称 -->
+      <div class="nav-right">jhr的小站</div> 
     </div>
 
     <!-- 主体内容区域 -->
@@ -219,7 +219,7 @@ function filter(category) {
             <img src="/img/avatar.jpg" alt="我的头像" style="width:120px; border-radius:50%; box-shadow:0 0 8px var(--tianyi-shadow); margin-bottom:10px;">
             <p style="font-style:italic; color:#666;">“嘿嘿，佬，洛佬😍”</p>
             <ul style="list-style:none; padding:0;">
-              <li>💻 HTML / CSS / JavaScript(✔️懂一点)</li>
+              <li>💻 HTML / CSS / JavaScript(懂一点)</li>
             </ul>
           </div>
 
@@ -229,9 +229,11 @@ function filter(category) {
             <div style="margin-bottom:10px;">
               <!-- 文章分类筛选按钮 -->
               <span class="fenlei"onclick="filter('all')" style="background-color: aquamarine; padding:4px 8px;border-radius:6px; margin-right:6px;">全部</span>
-              <span class="fenlei"onclick="filter('前端')" style="background-color:#d0f0ff; padding:4px 8px; border-radius:6px; margin-right:6px;">前端</span>
-              <span class="fenlei"onclick="filter('python')"style="background-color:#ffe0f0; padding:4px 8px; border-radius:6px; margin-right:6px;">python</span>
-              <span class="fenlei"onclick="filter('c++')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">c++</span>
+              <span class="fenlei"onclick="filter('前端入门')" style="background-color:#d0f0ff; padding:4px 8px; border-radius:6px; margin-right:6px;">前端入门</span>
+              <span class="fenlei"onclick="filter('python入门')"style="background-color:#ffe0f0; padding:4px 8px; border-radius:6px; margin-right:6px;">python入门</span>
+              <span class="fenlei"onclick="filter('c++入门')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">c++入门</span>
+              <span class="fenlei"onclick="filter('java入门')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">java入门</span>
+              <span class="fenlei"onclick="filter('ESP32入门')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">ESP32入门</span>
               <span class="fenlei"onclick="filter('数电')"style="background-color:#1fa0d391;padding:4px 8px; border-radius:6px; margin-right:6px;">数电</span>
               <span class="fenlei"onclick="filter('其它')"style="background-color:#e0f7ff; padding:4px 8px; border-radius:6px; margin-right:6px;">其它</span>
               <span class="fenlei"onclick="filter('生活')"style="background-color:#b3e5fc; padding:4px 8px; border-radius:6px; margin-right:6px;">生活</span>
@@ -239,16 +241,15 @@ function filter(category) {
               <span class="fenlei"onclick="filter('心里话')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">心里话</span>
               <span class="fenlei"onclick="filter('天依')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">歌词本</span>
               <span class="fenlei"onclick="filter('随笔')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">随笔</span>
+             
             </div>
             <ul id="article-list" style="padding-left:20px;">
-              <li data-category="前端"><a href="/articles/article1.html">📄 Flex 布局</a></li>
-              <li data-category="前端"><a href="/articles/wenzhangmulu.html">📄 文章模板</a></li>
-              <li data-category="Python"><a href="article2.html">📄 Python 入门</a></li>
-              <li data-category="生活"><a href="article3.html">📄 八月随笔</a></li>
+              <li data-category="前端入门"><a href="/articles/wenzhangmulu.html">📄 文章模板</a></li>
               <li data-category="生活"><a href="/articles/articles-day/生活，职校第一天感受.html">📄职校第一天感受</a></li>
-              <li data-category="生活"><a href="/articles/articles-day/c.html">📄 傻逼一职</a></li>
-              <li data-category="数电"><a href="/articles/wenzhang2.html"> 📖 文章标题数电测试</a></li>
+              <li data-category="生活"><a href="/articles/articles-dayc.html">📄 傻逼一职</a></li>
               <li data-category="随笔"><a href="/articles/Essay/1.html">📄 随笔1</a></li>
+              <li data-category="ESP32入门"><a href="/articles/ESP32/Basic Tutoral1.html">📄 ESP32基础教程1</a></li>
+              <li data-category="ESP32入门"><a href="/articles/ESP32/Program writing.html">📄 程序的基础语法与关键词</a></li>
             </ul>
           </div>
 
@@ -268,16 +269,14 @@ function filter(category) {
             <h2>📖 文章：</h2>
             <p> 文章模板盒子里面不对啊，侧边栏里面的，我实在不想弄了，我也不知道我写网页的目的是什么，为了跟风？别人他们不仅搞网页，还会一堆其它东西，我都不知道我弄这个的意义何在，上次弄这个还是在24年6月，没有学习过前端，但是看群里面都在聊，我也想试试，也就了解到了hexo模板，也玩过一段时间，当然也算可以说浪费了一段时间，后来因为一些原因，一些逆天东西被看到了，也不想弄了，我也学习不到啥。唉我学习能力也是差，也坚持不下来，明明3小时的前端入门，我硬是断断续续花了几周学完。 这个网页也算是我动手写的吧，但是没有ai指导，我写的就是史了，实在是累了</p>
             <br>
-            <h2>确实，我的心境情绪虽然是。。。不知道如何说，但是也不能把这个心境通过文字写出来,把负面情绪交给别人（我所有的文字部分）</h2>
-            <br>
-            <p>终于...终于花费两天时间（虽然大半天都是看番和混过去了），把前端的知识捡起来了一点，文章模板也写好了（盒子的距离实在是折腾我不少时间，看来margin还是不能乱用的.）代码挺乱的，起码也能看的过去吧   接下来得学java了，前面的学的全忘光了 26/2/10</p>
+            <p>终于...终于花费两天时间（虽然大半天都是看番听歌和混过去了），把前端的知识捡起来了一点，文章模板也写好了（盒子的距离实在是折腾我不少时间，看来margin还是不能乱用的.）代码挺乱的，起码也能看的过去吧   接下来得学java了，前面的学的全忘光了 26/2/10</p>
           </div>
 
     
      <!-- 💬 留言板模块 -->
 <div class="section message-section">
   <h2>💬 留言板</h2>
-  <p>欢迎留言交流（需 GitHub 登录）</p>
+  <p>欢迎留言交流（需 GitHub 登录）</p>你 
   <div id="comments"></div>
 </div> <!-- ← 这个是你漏掉的 -->
 <script src="https://utteranc.es/client.js"
@@ -353,7 +352,7 @@ function filter(category) {
           <div style="background-color: #fff8e1; padding: 12px; border-radius: 8px; margin-top: 20px; box-shadow: 0 0 8px var(--tianyi-shadow); width: 230px;">
             <strong style="color: #ff9800;">📢 告示栏</strong>
             <p style="margin-top: 8px; font-size: 14px; color: #555;">
-              目前因为开学，所以没时间完善，估计也不会有人看吧。本人没考上高中，是一个傻逼，看着xxt，abcd，内心很难受，再也没有话题可以聊了，知识层面差距也很大，虽然小学的时候和他无话不说，但是随着在不同的学校，环境他交到了许多很厉害的朋友，我和他的差距越来越大...这也是必然会发生的吧，我怎么可能配的上做他朋友呢？小学时的友情很真诚，但现在的距离也让我很难受，在初中也没有一个讲的来的好友，加上环境，我不太会交流和表达了，也不敢向老师提问，每次一个人呆着（为什么我想写出来呢？是想在别人面前刷存在感？还是指望别人给你安慰，还是想让xxt看到了解我的想法？我这人配吗？怎么可能有人为我承担坏情绪）
+              首页删除了很多东西，确实，都放GitHub上了，也不适合写一些掏心窝子的话啦~
             </p>
           </div>
         </div>
