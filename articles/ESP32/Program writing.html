@@ -43,36 +43,60 @@ void loop() {
 setup()：开机时执行一次
 loop()：不停循环执行（每秒执行很多次）
 
-
 </pre></code>
 
-    <h3>二、GPIO 相关函数</h3>
-    <p>GPIO（针脚）通过写程序的方式控制其输入输出状态，不过也不能随便用。“推荐使用的（以后接 LED、传感器、屏幕都优先用这些）
-:2,4,5,12,13,14,15,18,19,21,22,23,25,26,27,32,33”</p>
+    <h3>二、GPIO（数字输入输出）</h3>
+    <p>1. 什么是 GPIO？</p>
+    <p>GPIO 通用输入输出引脚  也就是开发板上面的引脚，每个针脚都可以输出电压(3.3v或0v)，读取电压  用来接按钮，传感器，屏幕等...常用的引脚</p>
+    <p>2.GPIO有四种模式 </p>
+    <ul>
+      <li> 输出 OUTPUT </li>
+      <li> 输入 INPUT  </li>
+      <li> 高电平 HIGH </li>
+      <li> 低电平 LOWT </li>
+    </ul>
+      <h3>GPIO常用的函数：</h3>
+      <h3>1. pinMode(pin,mode);//设置引脚是输入还是输出</h3>
+      <p>例:</p>
+    <ul>
+      <li>pinMode(2,OUTPUT);        设置针脚2为输出模式</li>
+      <li>pinMode(4,INPUT);         设置针脚4为输入模式</li>
+      <li>pinMode(4,INPUT_PULLUP);  设置针脚4为输入模式,并带内部的上拉电阻</li>
+  </ul>
 
-<h3>pinMode</h3>
-<p>设置GPIO的输入输出模式</p>
-<ul>  
-<li>pinMode(针脚, 模式) —— 设置针脚模式</li>
-<li>常用模式：</li>
-<li>INPUT：输入电压（读取按键）</li>
-<li>OUTPUT：输出电压（点灯、驱动）</li> 
-<li>INPUT_PULLUP：输入 + 上拉（按键松开时自动变 HIGH）</li>
-</ul>
-<p>示例：</p>
-<code><pre>
-pinMode(2, OUTPUT); // 设置 GPIO 2 为输出模式
-pinMode(4, INPUT);  // 设置 GPIO 4 为输入模式
-pinMode(5, INPUT_PULLUP); // 设置 GPIO 5 为输入模式并启用上拉电阻
-</pre></code>
+  <h3>2. digitalWrite(pin,value); //设定针脚的输出是高或低</h3>
+  <p>例:</p>
+    <ul>
+      <li>digitalWrite(2,HIGH);  设置针脚2为高电平</li>
+      <li>digitalWrite(4,LOW);   设置针脚4为低电平</li>
+  </ul>
+<h3>3. digitalRead(pin);  //读取引脚的电平</h3>
+<p>例:</p>
+    <ul>
+      <li>digitalRead(4);   //读取针脚4的电平，返回HIGH或LOW</li>
+  </ul>
 
+  <h3>练习</h3>
+  <p>了解了这么多，我们现在就能写一个简单的电灯案例：让板载LED亮起来,并实现亮一秒，灭一秒 </p>
+  <hr>
+  <p>假设LED接在GPIO2 （好吧，主要是我杜邦线买错了，不方便通过其它的引脚接负载，GPIO2是板载LED，单片机状态显示的） </p>
+<details>
+   <summary>点击查看图片</summary>
+   <img src="/articles/ESP32/img/屏幕截图 2026-02-22 222849.png" style="width:100%; max-width:600px; margin-top:10px;">
+</details>
 
-<h3>digitalRead(针脚)读取电平</h3>
-<p></p>
+  <p>案例2,读取按钮 按钮接在GIPO4，按下导通LED，松开反转 </p>
+  <details>
+   <summary>点击查看图片</summary>
+   <img src="/articles/ESP32/img/屏幕截图 2026-02-22 225740.png" style="width:100%; max-width:600px; margin-top:10px;">
+</details>
+<hr>
+  <p>不是，我草，这写文章也太麻烦了，效果也差，不如我写文档看的清楚</p>
   </div>
 
-<!--侧边栏-->
-<!-- 作者信息 -->
+
+
+
  <div class="sidebar">
 <div class="Author">
   <img class="img" src="/img/avatar.jpg" alt="头像"> 
