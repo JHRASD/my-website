@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章模板</title>
+
+  <!-- 图标字体 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="/css/maintext.css">
+
+  <!-- MathJax 配置（必须在脚本前） -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\
+
+\[', '\\]
+
+']]
+      }
+    };
+  </script>
+
+  <!-- MathJax 主脚本 -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- 顶部导航栏 -->
+    <div class="hengfu">
+      <a href="/index.html">首页</a>
+      <a href="#">目录</a>
+      <a href="#">归档</a>
+      <p class="nav-right">JHR的小站</p>
+    </div>
+
+    <!-- 主体布局 -->
+    <div class="layout">
+
+      <!-- 正文 -->
+      <div class="maintext">
+        <h1>文章标题</h1>
+        <p class="meta">发布日期： | 分类：</p>
+        <hr>
+        <p>文章内容</p>
+      </div>
+
+      <!-- 侧边栏 -->
+      <div class="sidebar">
+
+        <!-- 作者信息 -->
+        <div class="Author">
+          <img class="img" src="/img/avatar.jpg" alt="头像">
+          <h3 class="name">JHR</h3>
+          <div class="links">
+            <a class="a" href="https://space.bilibili.com/1266839139">bilibili</a>
+            <a class="a" href="https://github.com/JHRASD">GitHub</a>
+            <a class="a" href="mailto:JHR_BSOD_MIMZ1@outlook.com">邮箱</a>
+          </div>
+        </div>
+
+        <!-- 目录 -->
+        <div class="mulu">
+          <h2 style="color:#66ccff">文章目录</h2>
+          <ul></ul>
+        </div>
+
+        <!-- 小工具 -->
+        <div class="tools">
+          <h3 style="color:#66ccff">小工具</h3>
+          <button onclick="document.body.style.fontSize='30px'">放大字体</button>
+          <button onclick="document.body.style.fontSize='16px'">恢复默认</button>
+          <button onclick="document.body.classList.toggle('dark')">切换深色模式</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer">© 2025 JHR的小站</div>
+  </div>
+
+  <!-- Markdown 渲染器 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    const mdPath = new URLSearchParams(location.search).get('p')
+
+    if (mdPath) {
+      fetch(mdPath)
+        .then(res => res.text())
+        .then(md => {
+
+          // 设置标题
+          const titleMatch = md.match(/^# (.*)/)
+          if (titleMatch) document.title = titleMatch[1]
+
+          // Markdown → HTML
+          const html = marked.parse(md)
+          const maintext = document.querySelector(".maintext")
+          maintext.innerHTML = html
+
+          // 自动生成目录
+          const headings = maintext.querySelectorAll("h2, h3")
+          let tocHTML = ""
+          headings.forEach(h => {
+            const text = h.innerText
+            const id = text.replace(/\s+/g, "-")
+            h.id = id
+            tocHTML += `<li><a href="#${id}">${text}</a></li>`
+          })
+          document.querySelector(".mulu ul").innerHTML = tocHTML
+
+          // 渲染数学公式
+          if (window.MathJax) {
+            MathJax.typesetPromise()
+          }
+        })
+        .catch(err => {
+          document.querySelector(".maintext").innerHTML =
+            `<p style="color:red;">加载失败: ${err.message}</p>`
+        })
+    }
+  </script>
+
+</body>
+</html>

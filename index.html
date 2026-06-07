@@ -211,21 +211,21 @@ function filter(category) {
     <!-- 主体内容区域 -->
     <div class="content">
       <div class="main">
-        <!-- 🌸 左侧内容 -->
+        <!--  左侧内容 -->
         <div class="left">
-          <!-- 🌸 关于我模块 -->
+          <!--  关于我模块 -->
           <div class="section about-section">
-            <h2>🌸 关于我</h2>
+            <h2> 关于我</h2>
             <img src="/img/avatar.jpg" alt="我的头像" style="width:120px; border-radius:50%; box-shadow:0 0 8px var(--tianyi-shadow); margin-bottom:10px;">
             <p style="font-style:italic; color:#666;">“嘿嘿，佬，洛佬😍”</p>
             <ul style="list-style:none; padding:0;">
-              <li>💻 HTML / CSS / JavaScript(懂一点)</li>
+              <li> HTML / CSS / JavaScript(懂一点)</li>
             </ul>
           </div>
 
-          <!-- 📚 文章列表模块 -->
+          <!--  文章列表模块 -->
           <div class="section list-section">
-            <h2>📚 文章列表</h2>
+            <h2> 文章列表</h2>
             <div style="margin-bottom:10px;">
               <!-- 文章分类筛选按钮 -->
               <span class="fenlei"onclick="filter('all')" style="background-color: aquamarine; padding:4px 8px;border-radius:6px; margin-right:6px;">全部</span>
@@ -237,45 +237,46 @@ function filter(category) {
               <span class="fenlei"onclick="filter('数电')"style="background-color:#1fa0d391;padding:4px 8px; border-radius:6px; margin-right:6px;">数电</span>
               <span class="fenlei"onclick="filter('其它')"style="background-color:#e0f7ff; padding:4px 8px; border-radius:6px; margin-right:6px;">其它</span>
               <span class="fenlei"onclick="filter('生活')"style="background-color:#b3e5fc; padding:4px 8px; border-radius:6px; margin-right:6px;">生活</span>
-              <span class="fenlei"onclick="filter('其它')"style="background-color:#e0ffe0; padding:4px 8px; border-radius:6px;">其它</span>
-              <span class="fenlei"onclick="filter('心里话')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">心里话</span>
-              <span class="fenlei"onclick="filter('天依')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">歌词本</span>
-              <span class="fenlei"onclick="filter('随笔')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">随笔</span>
-             
+              <span class="fenlei"onclick="filter('模电')"style="background-color:#e0ffe0; padding:4px 8px; border-radius:6px;">模电</span>
+              <span class="fenlei"onclick="filter('plc')"style="background-color:#c8b6ff; padding:4px 8px; border-radius:6px; margin-right:6px;">plc</span>
             </div>
             <ul id="article-list" style="padding-left:20px;">
-              <li data-category="前端入门"><a href="/articles/wenzhangmulu.html">📄 文章模板</a></li>
-              <li data-category="生活"><a href="/articles/articles-day/生活，职校第一天感受.html">📄职校第一天感受</a></li>
-              <li data-category="生活"><a href="/articles/articles-dayc.html">📄 傻逼一职</a></li>
-              <li data-category="随笔"><a href="/articles/Essay/1.html">📄 随笔1</a></li>
-              <li data-category="ESP32入门"><a href="/articles/ESP32/Basic Tutoral1.html">📄 ESP32基础教程1</a></li>
-              <li data-category="ESP32入门"><a href="/articles/ESP32/Program writing.html">📄 程序的基础语法与关键词</a></li>
+              <li data-category="生活"><a href="/articles/articles-day/生活，职校第一天感受.html">职校第一天感受</a></li>
+              <li data-category="生活"><a href="/articles/articles-dayc.html">傻逼一职</a></li>
+              <li data-category="随笔"><a href="/articles/Essay/1.html">随笔1</a></li>
+              <li data-category="ESP32入门"><a href="/articles/ESP32/Basic Tutoral1.html">ESP32基础教程1</a></li>
+              <li data-category="ESP32入门"><a href="/articles/ESP32/Program writing.html"> 程序的基础语法与关键词</a></li>
+              <li data-category="ESP32入门"><a href="wenzhangmulu.html?p=/articles/ESP32/esp32-gpio.md"> ESP32 GPIO 教程</a></li>
+              <li data-category="PLC"><a href="wenzhangmulu.html?p=/articles/PLC/PLC基本操作.md"> PLC基本操作</a></li>
+              <li data-category="模电"><a href="wenzhangmulu.html?p=/articles/Analog Devices/电阻.md">电阻</a></li>
+              <li data-category="模电"><a href="wenzhangmulu.html?p=/articles/Analog Devices/电容.md">电容</a></li>
+              <li data-category="模电"><a href="wenzhangmulu.html?p=/articles/Analog Devices/RC滤波.md">RC滤波</a></li>
+              <li data-category="模电"><a href="wenzhangmulu.html?p=/articles/Analog Devices/电感.md">电感</a></li>
+              <li data-category="模电"><a href="wenzhangmulu.html?p=/articles/Analog Devices/RL滤波.md">RL滤波</a></li>
+              <li data-category="模电"><a href="wenzhangmulu.html?p=/articles/Analog Devices/LC低通滤波和谐振.md">LC低通滤波和谐振</a></li>
+              <li data-category="模电"><a href="wenzhangmulu.html?p=/articles/Analog Devices/二极管.md">二极管</a></li>
+              
+              
+              
             </ul>
           </div>
 
-          <!-- 🎵 音乐播放器模块 -->
-          <div class="section music-section">
-            <h2>🎵 背景音乐</h2>
-          <audio controls loop style="width:100%; margin-top:10px;">
-          <source src="/video/万分之一的光.mp3" type="audio/mpeg">
-                   您的浏览器不支持音频播放。
-         </audio>
 
-            <p style="margin-top:10px;"></p>
-          </div>
 
-          <!-- 📖 原始文章区 -->
+          <!--  原始文章区 -->
           <div class="section article-section">
-            <h2>📖 文章：</h2>
+            <h2> 文章：</h2>
             <p> 文章模板盒子里面不对啊，侧边栏里面的，我实在不想弄了，我也不知道我写网页的目的是什么，为了跟风？别人他们不仅搞网页，还会一堆其它东西，我都不知道我弄这个的意义何在，上次弄这个还是在24年6月，没有学习过前端，但是看群里面都在聊，我也想试试，也就了解到了hexo模板，也玩过一段时间，当然也算可以说浪费了一段时间，后来因为一些原因，一些逆天东西被看到了，也不想弄了，我也学习不到啥。唉我学习能力也是差，也坚持不下来，明明3小时的前端入门，我硬是断断续续花了几周学完。 这个网页也算是我动手写的吧，但是没有ai指导，我写的就是史了，实在是累了</p>
             <br>
             <p>终于...终于花费两天时间（虽然大半天都是看番听歌和混过去了），把前端的知识捡起来了一点，文章模板也写好了（盒子的距离实在是折腾我不少时间，看来margin还是不能乱用的.）代码挺乱的，起码也能看的过去吧   接下来得学java了，前面的学的全忘光了 26/2/10</p>
+            <br>
+            <p>唉我草，太久没碰这网页项目了，太乱了，而且我js把md文件渲染成html，但不支持渲染公式</p>
           </div>
 
     
-     <!-- 💬 留言板模块 -->
+     <!--  留言板模块 -->
 <div class="section message-section">
-  <h2>💬 留言板</h2>
+  <h2> 留言板</h2>
   <p>欢迎留言交流（需 GitHub 登录）</p> 
   <div id="comments"></div>
 </div> <!-- ← 这个是你漏掉的 -->
@@ -289,9 +290,9 @@ function filter(category) {
 
 
 
-          <!-- 🖼️ 图像集模块 -->
+          <!--  图像集模块 -->
           <div class="section gallery-section">
-            <h2>🖼️ 图像集</h2>
+            <h2>图像集</h2>
             <div class="images">
               <img src="img1.jpg" alt="图像1" /> <!-- 图像展示 -->
               <img src="img2.jpg" alt="图像2" />
@@ -301,13 +302,13 @@ function filter(category) {
           </div>
         </div>
 
-        <!-- 📌 右侧边栏 -->
+        <!--  右侧边栏 -->
         <div class="right">
           <!-- 作者信息卡片 -->
           <div style="margin-bottom:20px; padding:12px; background:#e0f7ff; border-radius:8px;">
             <strong style="font-size:16px;">👤 作者：JHR</strong>
             <p style="margin:8px 0;">
-              🎥 <a href="https://space.bilibili.com/1266839139" target="_blank" rel="noopener noreferrer"
+               <a href="https://space.bilibili.com/1266839139" target="_blank" rel="noopener noreferrer"
                  style="color:#1fa0d3; text-decoration:underline;">点击访问我的B站空间</a>
             </p>
             <p style="margin:6px 0;">
@@ -323,7 +324,7 @@ function filter(category) {
 
           <!-- 快速导航 -->
           <div style="margin-bottom:20px;">
-            <h3>📌 快速导航</h3>
+            <h3> 快速导航</h3>
             <ul style="padding-left: 16px;">
               <li><a href="#">关于我</a></li>
               <li><a href="#">文章列表</a></li>
@@ -335,25 +336,30 @@ function filter(category) {
 
           <!-- 最新文章模块 -->
           <div style="background-color: #ffe0f0; padding:10px; border-radius:8px; width: 230px;">
-            <strong>🆕 最新文章</strong>
+            <strong> 最新文章</strong>
             <ul style="margin-top:10px; font-size:14px;">
               <li><a href="/articles/articles-day/生活，职校第一天感受.html">2025-09-01：职校第一天感受</a></li>
               
             </ul>
             <div style="margin-top:10px;">
-              <strong>📊 分类统计：</strong><br>
+              <strong> 分类统计：</strong><br>
               前端：0篇<br>
               Python：0篇<br>
               生活：1篇
             </div>
           </div>
 
-          <!-- 📢 告示栏模块（独立） -->
+          <!-- 告示栏模块（独立） -->
           <div style="background-color: #fff8e1; padding: 12px; border-radius: 8px; margin-top: 20px; box-shadow: 0 0 8px var(--tianyi-shadow); width: 230px;">
-            <strong style="color: #ff9800;">📢 告示栏</strong>
+            <strong style="color: #ff9800;"> 告示栏</strong>
             <p style="margin-top: 8px; font-size: 14px; color: #555;">
               首页删除了很多东西，确实，都放GitHub上了，也不适合写一些掏心窝子的话啦~
             </p>
+            <p>
+              用ai写的js自动把md转成html,再也不用打一堆标签力（js还是以后在学吧 
+               <span style="font-size:10px; color:#555;">26/3/24</span>
+            </p>
+             <p>唉我草，太久没碰这网页项目了，太乱了，而且我js把md文件渲染成html，但不支持渲染公式。难受死我，有时间把前端复习复习，然后重新写一个吧</p>
           </div>
         </div>
       </div>
